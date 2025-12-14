@@ -123,7 +123,7 @@ export async function POST(request) { // ✅ Use POST method here
         // 4. Send Email using Resend
         // Ensure this is an email you have verified with Resend (e.g., on-boarding@yourdomain.com)
         await resend.emails.send({
-            from: 'IITH Complaints <onboarding@resend.dev>', 
+            from: 'IITH Complaints <no-reply@iith.ac.in>', 
             to: recipients,
             // The user's email is set as the Reply-To, so replies go back to the student
             reply_to: email, 

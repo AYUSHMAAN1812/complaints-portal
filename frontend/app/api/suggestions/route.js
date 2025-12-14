@@ -22,7 +22,7 @@ if (!admin.apps.length) {
         credential: admin.credential.cert({
             projectId: process.env.FIREBASE_PROJECT_ID,
             clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-            privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\n/g, '\n'),
         }),
     });
 }
@@ -37,10 +37,11 @@ export async function POST(request) {
     try {
         reportData = await request.json(); 
         const { reporterName, reporterEmail, suggestion } = reportData;
-
+        console.log("Suggestion Data Read:", reportData);
         // 1. Authentication Check (Ensure user is logged in)
-        const reqHeaders = headers();
-        const authHeader = reqHeaders.get("Authorization");
+        // const reqHeaders = headers();
+        const authHeader = request.headers.get("Authorization");
+        console.log(authHeader);
         const idToken = authHeader ? authHeader.split("Bearer ")[1] : null;
 
         if (!idToken) {

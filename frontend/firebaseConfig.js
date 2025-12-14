@@ -1,16 +1,16 @@
 import { initializeApp } from "firebase/app";
-import { getAuth} from "firebase/auth";
-import {getFirestore} from "firebase/firestore"
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDC9SEGMWSUZXHgccRWZ7JozDxKXxmA5ys",
-  authDomain: "complaints-website.firebaseapp.com",
-  projectId: "complaints-website",
-  storageBucket: "complaints-website.appspot.com",
-  messagingSenderId: "908948376386",
-  appId: "1:908948376386:web:399a036c22e6008a6b16db",
-  measurementId: "G-6MK5BZ10KC",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -18,4 +18,5 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app)
 // window.auth = auth;
-export {auth,db};
+// window.auth.currentUser.getIdToken().then(token => console.log('FIREBASE ID TOKEN:', token));
+export { auth, db };
