@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-import { AuthProvider } from "./context/AuthContext.js";
+import { AuthProvider } from "./context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  // manifest: "/manifest.json",
+  manifest: "/manifest.json",
   title: "Complaints Website",
   description: "A website for complaints",
 };
